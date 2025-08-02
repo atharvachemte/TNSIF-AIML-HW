@@ -53,16 +53,16 @@ fine_calculator(65,65,65)
 
 #Q5. MULTI LOAN ELIGIBILTY CHECKER
 age = int(input("enter your age: "))
-income = input("enter your income: ")
-credit_score = input("enter your credit_score: ")
+income = int(input("enter your income: "))
+credit_score = int(input("enter your credit_score: "))
 
 if (age >= 21 and age <= 60) and income >= 2500 and (credit_score >= 600 and credit_score <= 850):
     print("approve loan")
-elif income >= 2500 and credit_score <= 850:
+elif (age < 21 or age > 60) and income < 2500 and (credit_score < 600 or credit_score > 850):
+    print("rejected due to multiple reasons")
+elif (age < 21 or age > 60):
     print("rejected due to age")
-elif credit_score < 600:
-    print("rejected due to poor credit")
-elif income < 2500 :
+elif income < 2500:
     print("rejected due to low income")
-else:
-    print("rejected due to low age, low income, credit score")    
+elif credit_score < 600 or credit_score > 850:
+    print("rejected due to poor credit")  
